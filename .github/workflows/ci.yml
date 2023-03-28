@@ -18,8 +18,8 @@ jobs:
         uses: dorny/test-reporter@v1
         if: always()
         with:
-          name: Maven Tests
-          path: target/surefire-reports/*.xml
+          name: Gradle Tests
+          path: build/reports/*.html
           reporter: java-junit
           fail-on-error: true
 
