@@ -27,14 +27,14 @@ public class CalculatorImplTest {
         calc = new CalculatorImpl();
     }
 
-    @ParameterizedTest(name = "Possitive adding")
+    @ParameterizedTest(name = "Positive test for sum method")
     @MethodSource("provideSumTest")
     void sumTest(int a, int b, int output) {
         assertEquals(output, calc.sum(a, b));
     }
 
     private static Stream<Arguments> provideSumTest() {
-        return Stream.of(Arguments.of(1, 2, 3));
+        return Stream.of(Arguments.of(1, 2, -3));
     }
 
     @ParameterizedTest
