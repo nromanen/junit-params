@@ -1,4 +1,10 @@
+permissions:
+  id-token: write
+  contents: read
+  checks: write
+  
 name: Workflow for Codecov example-java-gradle
+
 on: [push, pull_request]
 jobs:
   run:
@@ -19,9 +25,9 @@ jobs:
         if: always()
         with:
           name: Gradle Tests
-          path: ///home/runner/work/junit-params/junit-params/build/reports/tests/test/index.html
+          path: build/reports/tests/test/index.html
           reporter: java-junit
           fail-on-error: true
-
+          
         
         
