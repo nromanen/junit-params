@@ -19,7 +19,7 @@ jobs:
         if: always()
         with:
           name: Gradle Tests
-          path: /build/reports/tests/test/index.html
+          path: ///home/runner/work/junit-params/junit-params/build/reports/tests/test/index.html
           reporter: java-junit
           fail-on-error: true
 
