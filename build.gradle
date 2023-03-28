@@ -1,24 +1,38 @@
+
+plugins {
+    id 'java'
+    id 'jacoco'
+}
 group 'io.codecov'
 version '1.0'
-
-apply plugin: 'java'
-apply plugin: 'jacoco'
-
 
 repositories {
     mavenCentral()
 }
 
-
+jacoco {
+    toolVersion = "0.8.2"
+    reportsDir = file("${buildDir}/jacoco")
+}
 
 jacocoTestReport {
     reports {
-        xml.enabled true
-        html.enabled false
+        xml.enabled = false
+        csv.enabled = false
+        html.enabled = true
     }
 }
 
-check.dependsOn jacocoTestReport
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+
+    finalizedBy jacocoTestReport
+}
+
+
 ext {
     jupiterVersion = '5.9.2'
 }
