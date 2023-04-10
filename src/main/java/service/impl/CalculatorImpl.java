@@ -1,10 +1,6 @@
 package service.impl;
 
-import exception.PasswordValidationException;
 import service.Calculator;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class CalculatorImpl implements Calculator {
     @Override
@@ -14,11 +10,11 @@ public class CalculatorImpl implements Calculator {
     }
 
     @Override
-    public int div(int a, int b) {
+    public double div(int a, int b) {
         if (b == 0){
             throw new IllegalArgumentException("Second argument cannot be zero");
         }
-        return 0;
+        return (double) a/b;
     }
 
     @Override

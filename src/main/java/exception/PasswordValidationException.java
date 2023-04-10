@@ -1,6 +1,6 @@
 package exception;
 
-public class PasswordValidationException extends RuntimeException {
+public class PasswordValidationException extends Exception { // from RuntimeException
     public PasswordValidationException(String letters) {
         super(letters);
     }
