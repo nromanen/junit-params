@@ -1,4 +1,10 @@
+permissions:
+  id-token: write
+  contents: read
+  checks: write
+  
 name: Workflow for Codecov example-java-gradle
+
 on: [push, pull_request]
 jobs:
   run:
@@ -14,3 +20,14 @@ jobs:
         run: gradle build
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
+      - name: Report
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Gradle Tests
+          path: build/test-results/test/*.xml
+          reporter: java-junit
+          fail-on-error: true
+          
+        
+        
